@@ -25,3 +25,5 @@ Proyecto Leucemia: Pipeline ML & Estado Actual
 5. Evaluación focalizada en Recall, F1-Score, PR-AUC y ROC-AUC.
 
 6. Análisis de Importancia de Características (Feature Importance).
+
+7. https://www.kaggle.com/code/mrinalbasakshuvo/leukemia/notebook
