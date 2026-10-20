@@ -1,10 +1,27 @@
-**«Proyecto Leucemia - Resumen y Pasos de Modelado ML»**.
+Proyecto Leucemia: Pipeline ML & Estado Actual
+1. Repositorio & Archivos
+• Repositorio GitHub: Stivenq7/leukemia_dataset (rama main)
 
-Incluye:
+• Archivo dataset: biased_leukemia_dataset.csv
 
-1. **Configuración del entorno y datos:** Tu repositorio (`Stivenq7/leukemia_dataset`), el archivo CSV y el módulo de funciones.
-2. **Decisiones clave tomadas:** El enfoque de clasificación binaria, el análisis del desbalance (~14.9% positivos) y la eliminación justificada de `Patient_ID` y variables sociodemográficas/geográficas.
-3. **Paso a paso de modelado para mañana:** La secuencia lista desde la binarización y división estratificada, hasta el escalado, entrenamiento con pesos balanceados, métricas clínicas y análisis de importancia de características.
+• Archivo de utilidades: funciones.py (del repositorio base del curso)
 
-Cuando retomemos mañana, podremos continuar directamente desde el paso 1 de modelado.
+2. Decisiones de Limpieza y Preprocesamiento
+• Tipo de problema: Clasificación binaria (Leukemia_Status: Positive=1, Negative=0).
 
+• Desbalance de clases: ~14.9% positivos vs ~85.1% negativos.
+
+• Variables eliminadas: Patient_ID y variables sociodemográficas/geográficas (Country, Ethnicity, Socioeconomic_Status, Urban_Rural, Gender) para mitigar sesgo algorítmico y ruido.
+
+3. Próximos Pasos (Flujo de Modelado para Mañana)
+1. Binarización de variables clínicas de tipo Yes/No y del target.
+
+2. Split estratificado (80/20) con stratify=y.
+
+3. Escalado numérico con StandardScaler sobre variables continuas.
+
+4. Modelado con class_weight='balanced' (Logistic Regression, Random Forest).
+
+5. Evaluación focalizada en Recall, F1-Score, PR-AUC y ROC-AUC.
+
+6. Análisis de Importancia de Características (Feature Importance).
