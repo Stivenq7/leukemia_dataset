@@ -27,3 +27,19 @@ Proyecto Leucemia: Pipeline ML & Estado Actual
 6. Análisis de Importancia de Características (Feature Importance).
 
 7. https://www.kaggle.com/code/mrinalbasakshuvo/leukemia/notebook
+
+
+
+El flujo de trabajo toma los datos crudos y los transforma en un sistema de apoyo a la decisión médica. No busca emitir un simple veredicto binario ("sano" vs. "enfermo"), sino cuantificar la probabilidad de riesgo de cada paciente y clasificarlo en un nivel de prioridad asistencial (Triage).
+
+Tipos de Modelado que se van a ManejarSe emplean dos familias de algoritmos complementarias para contrastar una aproximación lineal e interpretable frente a una no lineal basada en ensambles:1. Regresión Logística (LogisticRegression)Qué es: Un modelo paramétrico lineal que estima la probabilidad del evento $P(Y=1\vert{}X)$ mediante la función sigmoide:$$P(Y=1\vert{}X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p)}}$$Por qué se utiliza: Es el estándar en bioestadística y medicina. Permite interpretar de manera directa los coeficientes ($\beta$) en términos de odds ratios (razón de momios). Si una variable aumenta, se conoce con precisión matemática cuánto se incrementa o reduce el riesgo.Requisito técnico: Es muy sensible a la escala de las variables, por lo que exige escalado numérico previo (StandardScaler).
+
+
+Random Forest Classifier (RandomForestClassifier)
+Qué es: Un algoritmo de ensamble no paramétrico basado en Bagging (Bootstrap Aggregating) que construye múltiples árboles de decisión descorrelacionados y promedia sus predicciones.
+
+Por qué se utiliza: Captura interacciones biológicas complejas y relaciones no lineales entre factores clínicos (por ejemplo, el efecto conjunto de blastos elevados, edad avanzada y mutación genética presente).
+
+Requisito técnico: Es invariante a transformaciones monotónicas; no requiere escalado numérico y es resistente a valores atípicos (outliers).
+
+
